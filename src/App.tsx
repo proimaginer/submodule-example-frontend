@@ -26,9 +26,13 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      { articles.map(article => (<>
-        <p key={article.id}>{ article.content } | { article.created_at }</p>
-      </>))}
+      { articles.map(article => (
+        <>
+          <p key={article.id}>
+            <b>{ article.title }</b> | { article.content } | { article.created_at }
+          </p>
+        </>
+      ))}
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
