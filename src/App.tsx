@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import { Article } from './@core/types/types'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [articles, getArticles] = useState<Article[]>([])
 
   return (
     <div className="App">
@@ -16,6 +18,9 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+      { articles.map(article => <>
+        <p key = {article.id}>{ article.content }</p>
+      </>)}
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
